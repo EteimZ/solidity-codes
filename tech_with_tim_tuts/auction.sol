@@ -23,11 +23,11 @@ contract Auction {
 
     function start(uint startingBid) external {
     	require(!started, "Already started");
-	    require(msg.sender == seller, "You did not start the auction");
+	require(msg.sender == seller, "You did not start the auction");
         started = true;
-	    endAt = block.timestamp + 2 days;
+	endAt = block.timestamp + 2 days;
         highestBid = startingBid;
-	    emit Start();
+	emit Start();
     }
 
     function bid() external payable {
