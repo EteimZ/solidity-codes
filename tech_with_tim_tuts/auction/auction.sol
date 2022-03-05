@@ -36,7 +36,7 @@ contract Auction  {
 
     function start(IERC721 _nft, uint _nftId, uint startingBid) external {
     	require(!started, "Already started");
-	    require(msg.sender == seller, "You did not start the auction");
+	require(msg.sender == seller, "You did not start the auction");
         highestBid = startingBid;
 
         nft = _nft;
@@ -45,9 +45,9 @@ contract Auction  {
         
         
         started = true;
-	    endAt = block.timestamp + 2 days;
+	endAt = block.timestamp + 2 days;
         
-	    emit Start();
+	emit Start();
     }
 
     function bid() external payable {
